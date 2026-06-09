@@ -1,0 +1,1977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saraswati Arts – Handmade Decorative Art</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #FAF7F2;
+    --cream-dark: #F2EDE3;
+    --gold: #C9A84C;
+    --gold-light: #E8C96B;
+    --gold-pale: #F5EDD0;
+    --maroon: #6B1A2A;
+    --maroon-light: #8B2235;
+    --maroon-pale: #F5E8EB;
+    --black: #1A1208;
+    --text-muted: #7A6A55;
+    --white: #FFFFFF;
+    --shadow: 0 4px 24px rgba(107,26,42,0.08);
+    --shadow-hover: 0 12px 40px rgba(107,26,42,0.16);
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--cream);
+    color: var(--black);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 999;
+    background: rgba(250,247,242,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px;
+    transition: box-shadow .3s;
+  }
+  nav.scrolled { box-shadow: 0 4px 30px rgba(107,26,42,0.1); }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--maroon);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.875rem; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; text-decoration: none;
+    color: var(--black); position: relative; padding-bottom: 4px;
+    transition: color .3s;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 1.5px; background: var(--gold);
+    transition: width .3s;
+  }
+  .nav-links a:hover { color: var(--maroon); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    background: var(--maroon); color: var(--white) !important;
+    padding: 9px 22px; border-radius: 50px;
+    transition: background .3s, transform .2s !important;
+  }
+  .nav-cta:hover { background: var(--maroon-light) !important; transform: translateY(-1px); }
+  .nav-cta::after { display: none !important; }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--maroon); transition: .3s; border-radius: 2px; }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 120px 5% 80px;
+    position: relative; overflow: hidden;
+    background: linear-gradient(135deg, var(--cream) 60%, var(--gold-pale) 100%);
+  }
+  .hero-bg-ornament {
+    position: absolute; right: -60px; top: 50%; transform: translateY(-50%);
+    width: 520px; height: 520px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-content { max-width: 640px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--gold-pale); border: 1px solid var(--gold);
+    border-radius: 50px; padding: 6px 18px;
+    font-size: 0.78rem; font-weight: 500; color: var(--maroon);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeUp .6s ease both;
+  }
+  .hero-badge::before { content: '✦'; color: var(--gold); }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 700; line-height: 1.18;
+    color: var(--black); margin-bottom: 1.2rem;
+    animation: fadeUp .6s .1s ease both;
+  }
+  .hero-title em { font-style: italic; color: var(--maroon); }
+  .hero-sub {
+    font-size: 1.05rem; color: var(--text-muted);
+    max-width: 500px; margin-bottom: 2.5rem;
+    font-weight: 300; line-height: 1.8;
+    animation: fadeUp .6s .2s ease both;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp .6s .3s ease both; }
+  .btn-primary {
+    background: var(--maroon); color: var(--white);
+    border: none; padding: 14px 34px; border-radius: 50px;
+    font-family: 'Poppins', sans-serif; font-size: 0.9rem; font-weight: 500;
+    cursor: pointer; transition: all .3s; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: var(--maroon-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(107,26,42,0.25); }
+  .btn-outline {
+    background: transparent; color: var(--maroon);
+    border: 1.5px solid var(--maroon); padding: 13px 30px; border-radius: 50px;
+    font-family: 'Poppins', sans-serif; font-size: 0.9rem; font-weight: 500;
+    cursor: pointer; transition: all .3s; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-outline:hover { background: var(--maroon-pale); transform: translateY(-2px); }
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-top: 3.5rem;
+    padding-top: 2rem; border-top: 1px solid rgba(201,168,76,0.25);
+    animation: fadeUp .6s .4s ease both;
+  }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem; font-weight: 700; color: var(--maroon);
+    display: block; line-height: 1.1;
+  }
+  .stat-lbl { font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 90px 5%; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold);
+    display: flex; align-items: center; gap: 10px; margin-bottom: 0.6rem;
+  }
+  .section-label::before, .section-label::after { content: ''; flex: 0 0 30px; height: 1px; background: var(--gold); }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.9rem, 3vw, 2.7rem); font-weight: 700;
+    color: var(--black); margin-bottom: 0.8rem; line-height: 1.25;
+  }
+  .section-sub { font-size: 1rem; color: var(--text-muted); max-width: 520px; font-weight: 300; }
+  .section-head { text-align: center; margin-bottom: 3.5rem; }
+  .section-head .section-label { justify-content: center; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-img-wrap {
+    position: relative; border-radius: var(--radius);
+    background: var(--cream-dark); aspect-ratio: 4/5;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .about-img-placeholder {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; color: var(--gold); opacity: 0.3;
+  }
+  .about-img-wrap::after {
+    content: ''; position: absolute; inset: 0;
+    border: 2px solid var(--gold); border-radius: var(--radius);
+    margin: 12px; pointer-events: none;
+  }
+  .about-tag {
+    position: absolute; bottom: 24px; left: 24px;
+    background: var(--maroon); color: var(--white);
+    padding: 10px 20px; border-radius: 50px;
+    font-size: 0.82rem; font-weight: 500;
+  }
+  .about-features { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2rem; }
+  .about-feat {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 16px; border-radius: var(--radius-sm);
+    background: var(--cream); transition: background .3s;
+  }
+  .about-feat:hover { background: var(--gold-pale); }
+  .feat-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--maroon); display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0; color: var(--white);
+  }
+  .feat-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 2px; }
+  .feat-desc { font-size: 0.82rem; color: var(--text-muted); }
+
+  /* ── GALLERY ── */
+  #gallery { background: var(--cream); }
+  .filter-bar {
+    display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+    margin-bottom: 3rem;
+  }
+  .filter-btn {
+    padding: 10px 24px; border-radius: 50px; border: 1.5px solid rgba(201,168,76,0.4);
+    background: var(--white); color: var(--text-muted);
+    font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 500;
+    cursor: pointer; transition: all .25s; white-space: nowrap;
+  }
+  .filter-btn:hover { border-color: var(--gold); color: var(--maroon); }
+  .filter-btn.active {
+    background: var(--maroon); color: var(--white);
+    border-color: var(--maroon); box-shadow: 0 4px 14px rgba(107,26,42,0.2);
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+  .gallery-card {
+    background: var(--white); border-radius: var(--radius);
+    overflow: hidden; box-shadow: var(--shadow);
+    transition: transform .3s, box-shadow .3s;
+    cursor: pointer;
+    animation: fadeUp .4s ease both;
+  }
+  .gallery-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+  .card-img {
+    aspect-ratio: 1;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem; position: relative; overflow: hidden;
+  }
+  .card-img img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+  .card-img-overlay {
+    position: absolute; inset: 0;
+    background: rgba(107,26,42,0.7);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity .3s;
+    font-size: 0.85rem; color: var(--white); font-weight: 500; letter-spacing: 0.04em;
+  }
+  .gallery-card:hover .card-img-overlay { opacity: 1; }
+  .card-body { padding: 14px 16px 16px; }
+  .card-cat {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--gold); font-weight: 600; margin-bottom: 4px;
+  }
+  .card-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+  .card-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+  .card-footer {
+    padding: 10px 16px 14px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid var(--cream-dark);
+  }
+  .card-price { font-weight: 600; font-size: 0.9rem; color: var(--maroon); }
+  .card-order {
+    background: var(--maroon); color: var(--white);
+    border: none; border-radius: 50px; padding: 12px 24px;
+    font-size: 0.95rem; font-weight: 600; cursor: pointer;
+    font-family: 'Poppins', sans-serif; transition: background .3s;
+    text-decoration: none; display: inline-block;
+  }
+  .card-order:hover { background: var(--maroon-light); }
+
+  /* ── FEATURED ── */
+  #featured { background: var(--maroon); }
+  #featured .section-title, #featured .section-label, #featured .section-sub { color: var(--white); }
+  #featured .section-label { color: var(--gold); }
+  #featured .section-label::before, #featured .section-label::after { background: var(--gold); }
+  .featured-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.2rem; }
+  .featured-card {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(201,168,76,0.3);
+    border-radius: var(--radius); padding: 1.5rem 1.2rem; text-align: center;
+    transition: all .3s;
+  }
+  .featured-card:hover { background: rgba(255,255,255,0.14); transform: translateY(-4px); border-color: var(--gold); }
+  .feat-emoji { font-size: 2.5rem; margin-bottom: 0.8rem; display: block; }
+  .feat-name { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1rem; margin-bottom: 0.3rem; }
+  .feat-price { color: var(--gold); font-size: 0.85rem; font-weight: 500; }
+
+  /* ── REVIEWS ── */
+  #reviews { background: var(--white); }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+  .review-card {
+    background: var(--cream); border-radius: var(--radius);
+    padding: 1.6rem; transition: transform .3s, box-shadow .3s;
+    border: 1px solid transparent;
+  }
+  .review-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--gold-pale); }
+  .review-stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 0.8rem; }
+  .review-text { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem; font-style: italic; }
+  .review-author { font-weight: 600; font-size: 0.85rem; color: var(--maroon); }
+  .review-loc { font-size: 0.75rem; color: var(--text-muted); }
+  .review-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--gold); display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.95rem; color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  /* ── INSTAGRAM ── */
+  #instagram { background: var(--cream-dark); }
+  .insta-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-top: 2.5rem; }
+  .insta-tile {
+    aspect-ratio: 1; border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; cursor: pointer; position: relative; overflow: hidden;
+    transition: transform .3s;
+  }
+  .insta-tile:hover { transform: scale(1.04); }
+  .insta-overlay {
+    position: absolute; inset: 0; background: rgba(107,26,42,0.6);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity .3s;
+    color: var(--white); font-size: 0.7rem; font-weight: 500;
+  }
+  .insta-tile:hover .insta-overlay { opacity: 1; }
+  .insta-handle {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--white); border: 1.5px solid var(--gold);
+    border-radius: 50px; padding: 10px 24px;
+    color: var(--maroon); font-weight: 600; font-size: 0.9rem;
+    text-decoration: none; transition: all .3s; margin-top: 2rem;
+  }
+  .insta-handle:hover { background: var(--maroon); color: var(--white); border-color: var(--maroon); }
+
+  /* ── WHATSAPP ── */
+  .whatsapp-banner {
+    background: linear-gradient(120deg, #25D366 0%, #128C7E 100%);
+    border-radius: var(--radius); padding: 2.5rem 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 2rem; margin-top: 4rem; flex-wrap: wrap;
+  }
+  .wa-text h3 { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.5rem; margin-bottom: 0.4rem; }
+  .wa-text p { color: rgba(255,255,255,0.85); font-size: 0.9rem; }
+  .wa-btn {
+    background: var(--white); color: #128C7E; border: none;
+    padding: 13px 30px; border-radius: 50px; font-family: 'Poppins', sans-serif;
+    font-weight: 600; font-size: 0.9rem; cursor: pointer; display: inline-flex;
+    align-items: center; gap: 8px; transition: transform .3s; text-decoration: none;
+    white-space: nowrap;
+  }
+  .wa-btn:hover { transform: scale(1.04); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--black); }
+  #contact .section-title, #contact .section-sub { color: var(--white); }
+  #contact .section-label { color: var(--gold); }
+  #contact .section-label::before, #contact .section-label::after { background: var(--gold); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-form input, .contact-form textarea, .contact-form select {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-sm); padding: 14px 18px;
+    color: var(--white); font-family: 'Poppins', sans-serif; font-size: 0.88rem;
+    transition: border .3s; outline: none; resize: vertical;
+  }
+  .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.35); }
+  .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+    border-color: var(--gold);
+  }
+  .contact-form select option { background: var(--black); }
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-item {
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .ci-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .ci-label { font-size: 0.75rem; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; text-transform: uppercase; }
+  .ci-val { font-size: 0.92rem; color: var(--white); font-weight: 500; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0D0905; padding: 2rem 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+    border-top: 1px solid rgba(201,168,76,0.15);
+  }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--gold); }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+
+  /* ── WHATSAPP FLOAT ── */
+  .wa-float {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    width: 54px; height: 54px; border-radius: 50%;
+    background: #25D366; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4); cursor: pointer;
+    font-size: 1.5rem; text-decoration: none; transition: transform .3s;
+  }
+  .wa-float:hover { transform: scale(1.12); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── DIVIDER ── */
+  .gold-divider {
+    width: 60px; height: 2px; background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    margin: 1.2rem auto 0; border-radius: 2px;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 72px; left: 0; width: 100%; background: var(--cream); padding: 1.5rem 5%; gap: 1.2rem; border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .nav-links.open { display: flex; }
+    .hamburger { display: flex; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .insta-grid { grid-template-columns: repeat(3, 1fr); }
+    .whatsapp-banner { flex-direction: column; text-align: center; padding: 2rem; }
+    .hero-stats { gap: 1.5rem; }
+    footer { flex-direction: column; text-align: center; }
+  }
+
+  /* ── GALLERY HIDDEN ── */
+  .gallery-card.hidden { display: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">Saraswati <span>Arts</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg-ornament"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Handcrafted with Love</div>
+    <h1 class="hero-title">Where <em>Art Meets</em><br>Emotion & Memory</h1>
+    <p class="hero-sub">Custom handmade decorative art — name plates, acrylic designs, birthday & anniversary pieces crafted exclusively for you.</p>
+    <div class="hero-actions">
+      <a href="#gallery" class="btn-primary">Explore Gallery ↓</a>
+      <a href="https://wa.me/919999999999" target="_blank" class="btn-outline">📱 Order on WhatsApp</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span class="stat-val">500+</span>
+        <span class="stat-lbl">Happy Customers</span>
+      </div>
+      <div>
+        <span class="stat-val">6+</span>
+        <span class="stat-lbl">Art Categories</span>
+      </div>
+      <div>
+        <span class="stat-val">100%</span>
+        <span class="stat-lbl">Handmade</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap fade-in">
+      <div class="about-img-placeholder">🎨</div>
+      <div class="about-tag">Est. 2018 · Chondhi, Alibag</div>
+    </div>
+    <div class="fade-in">
+      <div class="section-label">Our Story</div>
+      <h2 class="section-title">Art Born from<br>Passion & Tradition</h2>
+      <p class="section-sub" style="margin-bottom:1.5rem">Saraswati Arts is a small studio rooted in Chondhi, Alibag, creating bespoke decorative pieces that celebrate life's most precious moments — from wedding anniversaries to birthday milestones and festive occasions.</p>
+      <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.8;margin-bottom:2rem">Each piece is crafted by hand with premium materials, bringing together traditional artistry and contemporary design to give you something truly one-of-a-kind.</p>
+      <div class="about-features">
+        <div class="about-feat">
+          <div class="feat-icon">✨</div>
+          <div>
+            <div class="feat-title">Premium Materials</div>
+            <div class="feat-desc">High-quality acrylic, resin, and thermocol used.</div>
+          </div>
+        </div>
+        <div class="about-feat">
+          <div class="feat-icon">🎁</div>
+          <div>
+            <div class="feat-title">Fully Customizable</div>
+            <div class="feat-desc">Names, dates, colours — every detail tailored to your vision.</div>
+          </div>
+        </div>
+        <div class="about-feat">
+          <div class="feat-icon">🚚</div>
+          <div>
+            <div class="feat-title">Pan-India Delivery</div>
+            <div class="feat-desc">currently no delivery avilable, visit the shop to buy.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-head fade-in">
+    <div class="section-label">Our Collection</div>
+    <h2 class="section-title">Explore the Gallery</h2>
+    <div class="gold-divider"></div>
+    <p class="section-sub" style="margin:1rem auto 0;text-align:center">Filter by category to find the perfect piece for your occasion.</p>
+  </div>
+
+  <div class="filter-bar fade-in">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="bedding">🛏 Wedding</button>
+    <button class="filter-btn" data-filter="birthday">🎂 Birthday Names</button>
+    <button class="filter-btn" data-filter="engagement">💍 Engagement</button>
+    <button class="filter-btn" data-filter="haladi">💛 Haladi</button>
+    <button class="filter-btn" data-filter="standy">📌 Standy</button>
+    <button class="filter-btn" data-filter="home-plates">🏠 Home Plates</button>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid">
+    <!-- BEDDING 10 -->
+    <div class="gallery-card" data-cat="bedding">
+      <div class="card-img" style="background:#F5EDD0">
+        <img src="./wedding img/heart-simple.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Wedding</div>
+        <div class="card-name">Sunshine Heart</div>
+        <div class="card-desc">A bright and cheerful heart design that beautifully reflects love, joy, and festive wedding vibes</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999?text=Hi! I'm interested in Royal Bloom Set" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="bedding">
+      <div class="card-img" style="background:#F2EDE3">
+        <img src="./wedding img/Heart1.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Wedding</div>
+        <div class="card-name">Royal Heart</div>
+        <div class="card-desc">Elegant red-and-gold heart design crafted to celebrate the union of two souls with royal charm.</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="bedding">
+      <div class="card-img" style="background:#FAF7F2">
+        <img src="./wedding img/heart2.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Wedding</div>
+        <div class="card-name">Twin Heart</div>
+        <div class="card-desc">A vibrant double-heart design symbolizing the beautiful bond and togetherness of the bride and groom.</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="bedding">
+      <div class="card-img" style="background:#F5E8EB">
+        <img src="./wedding img/heart22.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Wedding</div>
+        <div class="card-name">Golden Crest Heart</div>
+        <div class="card-desc">An artistic heart-shaped wedding design with royal golden patterns that adds a graceful traditional touch.</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="bedding">
+      <div class="card-img" style="background:#E8F5E8">
+        <img src="./wedding img/name.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Wedding</div>
+        <div class="card-name">Modern Glitter Typography</div>
+        <div class="card-desc">A vibrant and stylish wedding name design that blends festive colors with elegant glitter lettering.</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="bedding">
+      <div class="card-img" style="background:#EEF0FB">
+        <img src="./wedding img/ovel.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Wedding</div>
+        <div class="card-name">Royal Frame Wedding</div>
+        <div class="card-desc">A bold and elegant wedding design featuring royal golden accents with vibrant traditional styling.</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="bedding">
+      <div class="card-img" style="background:#FEF9EC">
+        <img src="./wedding img/silver.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Wedding</div>
+        <div class="card-name">Silver Spark Heart</div>
+        <div class="card-desc">A classy red-and-silver wedding design that shines with elegance, romance, and festive sparkle.</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="bedding">
+      <div class="card-img" style="background:#F5EDD0">
+        <img src="./wedding img/simple.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Wedding</div>
+        <div class="card-name">Simple red heart</div>
+        <div class="card-desc">A colorful glitter-finish heart design made to highlight the charm of a joyful wedding celebration.</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="bedding">
+      <div class="card-img" style="background:#F0EBF5">
+        <img src="./wedding img/single.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Wedding</div>
+        <div class="card-name">Classic Single Heart</div>
+        <div class="card-desc">A simple yet elegant heart-shaped wedding design that beautifully showcases the couple’s names together.</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="bedding">
+      <div class="card-img" style="background:#F2EDE3">
+        <img src="./wedding img/square.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Wedding</div>
+        <div class="card-name">Royal Diamond Frame</div>
+        <div class="card-desc">A luxurious diamond-style wedding design with intricate golden borders for a grand traditional look.</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="bedding">
+      <div class="card-img" style="background:#F2EDE3">
+        <img src="./wedding img/square2.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Wedding</div>
+        <div class="card-name">Elegant Royal Square</div>
+        <div class="card-desc">A graceful square-frame wedding design with artistic borders that adds a rich traditional charm.</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="bedding">
+      <div class="card-img" style="background:#F2EDE3">
+        <img src="./wedding img/weds.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Wedding</div>
+        <div class="card-name">Floral Heart Weds</div>
+        <div class="card-desc">A stylish heart-themed wedding design featuring elegant couple names with a modern “Weds” centerpiece.</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+
+    <!-- BIRTHDAY 10 -->
+    <div class="gallery-card" data-cat="birthday">
+      <div class="card-img" style="background:#FFF0F3">
+        <img src="./Birthday names/fort.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Birthday Names</div>
+        <div class="card-name">Birthday fort design</div>
+        <div class="card-desc">opening door fort design birthday name.</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="birthday">
+      <div class="card-img" style="background:#FFF5E0">
+        <img src="./Birthday names/acrylic-design.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Birthday Names</div>
+        <div class="card-name">Acrylic name</div>
+        <div class="card-desc">Acrylic name stand with confetti burst design, any colour</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="birthday">
+      <div class="card-img" style="background:#F0F5FF">
+        <img src="./Birthday names/acrylic.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Birthday Names</div>
+        <div class="card-name">Acrylic name</div>
+        <div class="card-desc">Acrylic name stand with confetti burst design, any colour</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="birthday">
+      <div class="card-img" style="background:#FFF0F3">
+        <img src="./Birthday names/black.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Birthday Names</div>
+        <div class="card-name">Fort name</div>
+        <div class="card-desc">customizable fort design for ancient name which suits the vibe.</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="birthday">
+      <div class="card-img" style="background:#F5FFF0">
+        <img src="./Birthday names/blue-royal.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Birthday Names</div>
+        <div class="card-name">Door design</div>
+        <div class="card-desc">Thermocol Royal birthday name design. can be customize. available in different color</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="birthday">
+      <div class="card-img" style="background:#FFF5E0">
+        <img src="./Birthday names/cartoon.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Birthday Names</div>
+        <div class="card-name">Cartoon design</div>
+        <div class="card-desc">cartoon birday name design. customizeable cartoon charectar and color.</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="birthday">
+      <div class="card-img" style="background:#F0F5FF">
+        <img src="./Birthday names/light-acrylic.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Birthday Names</div>
+        <div class="card-name">Acrylic light Board</div>
+        <div class="card-desc">Acustomiizable crylic light Board</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="birthday">
+      <div class="card-img" style="background:#FFF0F3">
+        <img src="./Birthday names/marun-red.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Birthday Names</div>
+        <div class="card-name">Door design</div>
+        <div class="card-desc">Thermocol Royal birthday name design. can be customize. available in different color</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="birthday">
+      <div class="card-img" style="background:#F5FFF0">
+        <img src="./Birthday names/marun-royal.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Birthday Names</div>
+        <div class="card-name">Door design</div>
+        <div class="card-desc">Thermocol Royal birthday name design. can be customize. available in different color</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="birthday">
+      <div class="card-img" style="background:#FFF5E0">
+        <img src="./Birthday names/marun2.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Birthday Names</div>
+        <div class="card-name">Door design</div>
+        <div class="card-desc">Thermocol Royal birthday name design. can be customize. available in different color</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="birthday">
+      <div class="card-img" style="background:#FFF5E0">
+        <img src="./Birthday names/purple.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Birthday Names</div>
+        <div class="card-name">Door design</div>
+        <div class="card-desc">Thermocol Royal birthday name design. can be customize. available in different color</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="birthday">
+      <div class="card-img" style="background:#FFF5E0">
+        <img src="./Birthday names/red.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Birthday Names</div>
+        <div class="card-name">Door design</div>
+        <div class="card-desc">Thermocol Royal birthday name design. can be customize. available in different color</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="birthday">
+      <div class="card-img" style="background:#FFF5E0">
+        <img src="./Birthday names/thermocol-ball-circle.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Birthday Names</div>
+        <div class="card-name">Thermocol ball design</div>
+        <div class="card-desc">Thermocol falls down and name is visible. design can be customize.</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="birthday">
+      <div class="card-img" style="background:#FFF5E0">
+        <img src="./Birthday names/thermocol-ball-heart.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Birthday Names</div>
+        <div class="card-name">Thermocol ball design</div>
+        <div class="card-desc">Thermocol falls down and name is visible. design can be customize.</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+
+    <!-- ENGAGEMENT 21 -->
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#F5EDD0">
+        <img src="./Engagement img/acrylic.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Acrylic Couple Frame</div>
+        <div class="card-desc">Elegant acrylic design with couple names in gold lettering</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#FFF0F3">
+        <img src="./Engagement img/circle-ini.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Circle Initials Design</div>
+        <div class="card-desc">Beautiful circular frame with couple's initials intertwined</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#F0EBF5">
+        <img src="./Engagement img/circle-name.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Circular Name Frame</div>
+        <div class="card-desc">Modern round frame showcasing couple's names elegantly</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#FFF5E0">
+        <img src="./Engagement img/infinity.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Infinity Symbol Ring</div>
+        <div class="card-desc">Eternal love symbol with infinity ring design and names</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#F5E8EB">
+        <img src="./Engagement img/ini-in-ring.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Initials in Ring</div>
+        <div class="card-desc">Romantic ring design with couple's initials in center</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#EEF0FB">
+        <img src="./Engagement img/intials.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Classic Initials</div>
+        <div class="card-desc">Timeless initials design with elegant typography</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#F5EDD0">
+        <img src="./Engagement img/leaf-circle.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Leaf Circle Frame</div>
+        <div class="card-desc">Natural leaf motif surrounding couple's names in circle</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#FFF0F3">
+        <img src="./Engagement img/marathi-name.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Marathi Name Art</div>
+        <div class="card-desc">Beautiful Marathi script names with traditional styling</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#F0EBF5">
+        <img src="./Engagement img/name.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Simple Name Board</div>
+        <div class="card-desc">Clean and minimal couple names display with grace</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#FFF5E0">
+        <img src="./Engagement img/name2.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Name Plaque Design</div>
+        <div class="card-desc">Sophisticated plaque with couple's names in style</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#F5E8EB">
+        <img src="./Engagement img/name22.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Double Name Board</div>
+        <div class="card-desc">Twin names artistically displayed on elegant board</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#EEF0FB">
+        <img src="./Engagement img/ring.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Ring Design</div>
+        <div class="card-desc">Symbolic engagement ring design with couple details</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#F5EDD0">
+        <img src="./Engagement img/ring=date.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Ring with Date</div>
+        <div class="card-desc">Ring design showcasing engagement date beautifully</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#FFF0F3">
+        <img src="./Engagement img/square.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Square Frame</div>
+        <div class="card-desc">Contemporary square design with couple names</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#F0EBF5">
+        <img src="./Engagement img/thermocol--ring.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Thermocol Ring</div>
+        <div class="card-desc">Lightweight thermocol ring design with 3D effect</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#FFF5E0">
+        <img src="./Engagement img/Thermocol-ini.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Thermocol Initials</div>
+        <div class="card-desc">3D thermocol initials with bold statement style</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#F5E8EB">
+        <img src="./Engagement img/thermocol-inii.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Thermocol Double Initials</div>
+        <div class="card-desc">Twin initials in standout 3D thermocol form</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#EEF0FB">
+        <img src="./Engagement img/thermocol-name.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Thermocol Name</div>
+        <div class="card-desc">3D names in eye-catching thermocol material</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#F5EDD0">
+        <img src="./Engagement img/thermocol-ring.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Thermocol Ring Piece</div>
+        <div class="card-desc">Dimensional thermocol ring with elegant finish</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#FFF0F3">
+        <img src="./Engagement img/thermocol2-ring.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Thermocol Ring Design 2</div>
+        <div class="card-desc">Alternative 3D thermocol ring variation</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="engagement">
+      <div class="card-img" style="background:#F0EBF5">
+        <img src="./Engagement img/WhatsApp Image 2026-06-08 at 11.26.18 AM.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Engagement</div>
+        <div class="card-name">Premium Engagement Art</div>
+        <div class="card-desc">Exclusive custom engagement artwork piece</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+
+    <!-- HOME PLATES 13 -->
+    <div class="gallery-card" data-cat="home-plates">
+      <div class="card-img" style="background:#F2EDE3">
+        <img src="./home plates/1.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Home Plates</div>
+        <div class="card-name">Classic Home Plate 1</div>
+        <div class="card-desc">Traditional nameplate design with house number display</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="home-plates">
+      <div class="card-img" style="background:#FAF7F2">
+        <img src="./home plates/2.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Home Plates</div>
+        <div class="card-name">Classic Home Plate 2</div>
+        <div class="card-desc">Elegant nameplate with custom family name engraving</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="home-plates">
+      <div class="card-img" style="background:#F5EDD0">
+        <img src="./home plates/3.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Home Plates</div>
+        <div class="card-name">Classic Home Plate 3</div>
+        <div class="card-desc">Premium nameplate with gold accent border</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="home-plates">
+      <div class="card-img" style="background:#EEF0FB">
+        <img src="./home plates/h1.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Home Plates</div>
+        <div class="card-name">Designer Home Plate 1</div>
+        <div class="card-desc">Modern design with personalized house name in style</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="home-plates">
+      <div class="card-img" style="background:#F0EBF5">
+        <img src="./home plates/h2.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Home Plates</div>
+        <div class="card-name">Designer Home Plate 2</div>
+        <div class="card-desc">Contemporary door plaque for modern homes</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="home-plates">
+      <div class="card-img" style="background:#F5E8EB">
+        <img src="./home plates/h3.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Home Plates</div>
+        <div class="card-name">Designer Home Plate 3</div>
+        <div class="card-desc">Artistic nameplate with custom embellishments</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="home-plates">
+      <div class="card-img" style="background:#F2EDE3">
+        <img src="./home plates/h4.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Home Plates</div>
+        <div class="card-name">Designer Home Plate 4</div>
+        <div class="card-desc">Luxury nameplate with premium finishing</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="home-plates">
+      <div class="card-img" style="background:#FFF5E0">
+        <img src="./home plates/h5.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Home Plates</div>
+        <div class="card-name">Designer Home Plate 5</div>
+        <div class="card-desc">Sophisticated gate nameplate in gold finish</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="home-plates">
+      <div class="card-img" style="background:#FAF7F2">
+        <img src="./home plates/h6.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Home Plates</div>
+        <div class="card-name">Designer Home Plate 6</div>
+        <div class="card-desc">Classic nameplate with timeless elegance</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="home-plates">
+      <div class="card-img" style="background:#F5EDD0">
+        <img src="./home plates/h7.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Home Plates</div>
+        <div class="card-name">Designer Home Plate 7</div>
+        <div class="card-desc">Personalized nameplate with custom design options</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="home-plates">
+      <div class="card-img" style="background:#EEF0FB">
+        <img src="./home plates/h8.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Home Plates</div>
+        <div class="card-name">Designer Home Plate 8</div>
+        <div class="card-desc">Stunning door nameplate for grand entrances</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="home-plates">
+      <div class="card-img" style="background:#F0EBF5">
+        <img src="./home plates/h9.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Home Plates</div>
+        <div class="card-name">Designer Home Plate 9</div>
+        <div class="card-desc">Bespoke nameplate matching your home's personality</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="home-plates">
+      <div class="card-img" style="background:#F5E8EB">
+        <img src="./home plates/h10.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Home Plates</div>
+        <div class="card-name">Designer Home Plate 10</div>
+        <div class="card-desc">Exquisite nameplate design for your perfect home</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+
+    
+    <!-- HALADI 10 -->
+    <div class="gallery-card" data-cat="haladi">
+      <div class="card-img" style="background:#FFF8DC">
+        <img src="./haladi/1.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Haladi</div>
+        <div class="card-name">Traditional Haladi Art</div>
+        <div class="card-desc">Authentic handcrafted haladi design celebrating ceremonial traditions</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="haladi">
+      <div class="card-img" style="background:#FFFACD">
+        <img src="./haladi/2.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Haladi</div>
+        <div class="card-name">Golden Haladi Design</div>
+        <div class="card-desc">Beautifully crafted haladi piece with vibrant golden accents</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="haladi">
+      <div class="card-img" style="background:#FFEB3B">
+        <img src="./haladi/3.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Haladi</div>
+        <div class="card-name">Elegant Haladi Plaque</div>
+        <div class="card-desc">Sophisticated haladi artwork perfect for celebrations</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="haladi">
+      <div class="card-img" style="background:#FDD835">
+        <img src="./haladi/4.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Haladi</div>
+        <div class="card-name">Royal Haladi Frame</div>
+        <div class="card-desc">Majestic haladi design with traditional royal aesthetics</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="haladi">
+      <div class="card-img" style="background:#FFE082">
+        <img src="./haladi/5.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Haladi</div>
+        <div class="card-name">Festive Haladi Board</div>
+        <div class="card-desc">Vibrant haladi artwork celebrating festive moments</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="haladi">
+      <div class="card-img" style="background:#FFF9C4">
+        <img src="./haladi/6.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Haladi</div>
+        <div class="card-name">Sunshine Haladi</div>
+        <div class="card-desc">Bright and cheerful haladi design radiating joy</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="haladi">
+      <div class="card-img" style="background:#FFCA28">
+        <img src="./haladi/7.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Haladi</div>
+        <div class="card-name">Ornate Haladi</div>
+        <div class="card-desc">Intricately designed haladi with ornamental details</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="haladi">
+      <div class="card-img" style="background:#FFD54F">
+        <img src="./haladi/8.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Haladi</div>
+        <div class="card-name">Ceremonial Haladi</div>
+        <div class="card-desc">Sacred haladi piece for traditional ceremonies</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="haladi">
+      <div class="card-img" style="background:#FFEE58">
+        <img src="./haladi/9.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Haladi</div>
+        <div class="card-name">Radiant Haladi Art</div>
+        <div class="card-desc">Resplendent haladi artwork with golden brilliance</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="haladi">
+      <div class="card-img" style="background:#FFF176">
+        <img src="./haladi/10.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Haladi</div>
+        <div class="card-name">Premium Haladi Design</div>
+        <div class="card-desc">Exquisite haladi creation for special occasions</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="haladi">
+      <div class="card-img" style="background:#FFF176">
+        <img src="./haladi/11.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Haladi</div>
+        <div class="card-name">Premium Haladi Design</div>
+        <div class="card-desc">Exquisite haladi creation for special occasions</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="haladi">
+      <div class="card-img" style="background:#FFF176">
+        <img src="./haladi/12.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Haladi</div>
+        <div class="card-name">Premium Haladi Design</div>
+        <div class="card-desc">Exquisite haladi creation for special occasions</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="haladi">
+      <div class="card-img" style="background:#FFF176">
+        <img src="./haladi/13.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Haladi</div>
+        <div class="card-name">Premium Haladi Design</div>
+        <div class="card-desc">Exquisite haladi creation for special occasions</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="haladi">
+      <div class="card-img" style="background:#FFF176">
+        <img src="./haladi/14.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Haladi</div>
+        <div class="card-name">Premium Haladi Design</div>
+        <div class="card-desc">Exquisite haladi creation for special occasions</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="haladi">
+      <div class="card-img" style="background:#FFF176">
+        <img src="./haladi/15.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Haladi</div>
+        <div class="card-name">Premium Haladi Design</div>
+        <div class="card-desc">Exquisite haladi creation for special occasions</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="haladi">
+      <div class="card-img" style="background:#FFF176">
+        <img src="./haladi/16.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Haladi</div>
+        <div class="card-name">Premium Haladi Design</div>
+        <div class="card-desc">Exquisite haladi creation for special occasions</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="haladi">
+      <div class="card-img" style="background:#FFF176">
+        <img src="./haladi/17.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Haladi</div>
+        <div class="card-name">Premium Haladi Design</div>
+        <div class="card-desc">Exquisite haladi creation for special occasions</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="haladi">
+      <div class="card-img" style="background:#FFF176">
+        <img src="./haladi/18.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Haladi</div>
+        <div class="card-name">Premium Haladi Design</div>
+        <div class="card-desc">Exquisite haladi creation for special occasions</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="haladi">
+      <div class="card-img" style="background:#FFF176">
+        <img src="./haladi/19.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Haladi</div>
+        <div class="card-name">Premium Haladi Design</div>
+        <div class="card-desc">Exquisite haladi creation for special occasions</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+
+
+    <!-- STANDY 10 -->
+    <div class="gallery-card" data-cat="standy">
+      <div class="card-img" style="background:#E8F5E9">
+        <img src="./standy/2.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Standy</div>
+        <div class="card-name">Name Standy Classic</div>
+        <div class="card-desc">Elegant personalized name standy for desks and displays</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="standy">
+      <div class="card-img" style="background:#E8F5E9">
+        <img src="./standy/3.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Standy</div>
+        <div class="card-name">Name Standy Classic</div>
+        <div class="card-desc">Elegant personalized name standy for desks and displays</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="standy">
+      <div class="card-img" style="background:#E8F5E9">
+        <img src="./standy/4.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Standy</div>
+        <div class="card-name">Name Standy Classic</div>
+        <div class="card-desc">Elegant personalized name standy for desks and displays</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="standy">
+      <div class="card-img" style="background:#E8F5E9">
+        <img src="./standy/5.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Standy</div>
+        <div class="card-name">Name Standy Classic</div>
+        <div class="card-desc">Elegant personalized name standy for desks and displays</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="standy">
+      <div class="card-img" style="background:#E8F5E9">
+        <img src="./standy/6.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Standy</div>
+        <div class="card-name">Name Standy Classic</div>
+        <div class="card-desc">Elegant personalized name standy for desks and displays</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="standy">
+      <div class="card-img" style="background:#E8F5E9">
+        <img src="./standy/7.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Standy</div>
+        <div class="card-name">Name Standy Classic</div>
+        <div class="card-desc">Elegant personalized name standy for desks and displays</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="standy">
+      <div class="card-img" style="background:#E8F5E9">
+        <img src="./standy/8.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Standy</div>
+        <div class="card-name">Name Standy Classic</div>
+        <div class="card-desc">Elegant personalized name standy for desks and displays</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+    <div class="gallery-card" data-cat="standy">
+      <div class="card-img" style="background:#E8F5E9">
+        <img src="./standy/WhatsApp Image 2026-06-08 at 11.26.08 AM.jpeg" alt="">
+      </div>
+      <div class="card-img-overlay">View Details</div>
+      <div class="card-body">
+        <div class="card-cat">Standy</div>
+        <div class="card-name">Name Standy Classic</div>
+        <div class="card-desc">Elegant personalized name standy for desks and displays</div>
+      </div>
+      <div class="card-footer">
+        <a href="https://wa.me/919999999999" target="_blank" class="card-order">Order Now</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section id="featured">
+  <div class="section-head fade-in">
+    <div class="section-label">Best Sellers</div>
+    <h2 class="section-title" style="color:var(--white)">Customer Favourites</h2>
+    <div class="gold-divider"></div>
+  </div>
+  <div class="featured-grid fade-in">
+    <div class="featured-card"><span class="feat-emoji">💍</span><div class="feat-name">Eternal Bond Frame</div><div class="feat-price">₹ 999 onwards</div></div>
+    <div class="featured-card"><span class="feat-emoji">🏠</span><div class="feat-name">Peacock Manor Plate</div><div class="feat-price">₹ 949 onwards</div></div>
+    <div class="featured-card"><span class="feat-emoji">🎂</span><div class="feat-name">Birthday Sparkle Board</div><div class="feat-price">₹ 699 onwards</div></div>
+    <div class="featured-card"><span class="feat-emoji">💎</span><div class="feat-name">Crystal Glow Stand</div><div class="feat-price">₹ 899 onwards</div></div>
+    <div class="featured-card"><span class="feat-emoji">⭐</span><div class="feat-name">Constellation Map Panel</div><div class="feat-price">₹ 1,799 onwards</div></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="section-head fade-in">
+    <div class="section-label">Testimonials</div>
+    <h2 class="section-title">What Our Customers Say</h2>
+    <div class="gold-divider"></div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card fade-in">
+      <div class="review-avatar">P</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"The anniversary board was absolutely stunning. My husband cried when he saw it. The quality and detail is beyond what I expected."</p>
+      <div class="review-author">Priya Sharma</div>
+      <div class="review-loc">Mumbai · Anniversary Gift</div>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-avatar">R</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Ordered a home nameplate — got it in 5 days, beautifully packed. The gold lettering is exactly what I pictured. Will definitely order again!"</p>
+      <div class="review-author">Rahul Mehta</div>
+      <div class="review-loc">Pune · Home Nameplate</div>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-avatar">A</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"My daughter's birthday board was the highlight of her party! Everyone kept asking where I got it from. Truly one-of-a-kind work."</p>
+      <div class="review-author">Anjali Nair</div>
+      <div class="review-loc">Bengaluru · Birthday Name Board</div>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-avatar">S</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"The acrylic constellation map for our bedroom wall is a piece of art. The packaging was so premium — felt like unwrapping a luxury gift."</p>
+      <div class="review-author">Sneha Kapoor</div>
+      <div class="review-loc">Delhi · Acrylic Wall Art</div>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-avatar">V</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Responsive team, fast delivery, and the product surpassed expectations. The bedding set with our name is just gorgeous!"</p>
+      <div class="review-author">Vinod Pillai</div>
+      <div class="review-loc">Kochi · Custom Bedding Set</div>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-avatar">M</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Gifted the peacock plate to my parents for their anniversary. The look on their faces was priceless. Thank you Saraswati Arts!"</p>
+      <div class="review-author">Meena Krishnaswamy</div>
+      <div class="review-loc">Chennai · Anniversary &amp; Home Plate</div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section id="instagram" style="text-align:center">
+  
+  <div class="whatsapp-banner fade-in">
+    <div class="wa-text">
+      <h3>Ready to Order? Chat With Us!</h3>
+      <p>Send us your customisation details on WhatsApp and we'll get back within 1 hour.</p>
+    </div>
+    <a href="https://wa.me/919999999999?text=Hi! I'd like to order a custom piece from Saraswati Arts." target="_blank" class="wa-btn">
+      💬 Order on WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-head fade-in">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Let's Create Something Beautiful</h2>
+  </div>
+  <div class="contact-grid fade-in">
+    <div class="contact-form">
+      <input type="text" placeholder="Your Name">
+      <input type="email" placeholder="Email Address">
+      <input type="tel" placeholder="Phone / WhatsApp Number">
+      <select>
+        <option value="" disabled selected>Select Product Category</option>
+        <option>Bedding</option>
+        <option>Birthday Names</option>
+        <option>Anniversary</option>
+        <option>Home Plates</option>
+        <option>Acrylic Designs</option>
+      </select>
+      <textarea rows="4" placeholder="Tell us about your customisation..."></textarea>
+      <button class="btn-primary" style="width:100%;justify-content:center;border:none" onclick="alert('Thank you! We will contact you shortly on WhatsApp.')">Send Enquiry →</button>
+    </div>
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="ci-icon">📍</div>
+        <div>
+          <div class="ci-label">Studio Location</div>
+          <div class="ci-val">Chondhi, Alibaug, Raigad</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">📱</div>
+        <div>
+          <div class="ci-label">WhatsApp & Call</div>
+          <div class="ci-val">+91 9921295399</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">📸</div>
+        <div>
+          <div class="ci-label">Instagram</div>
+          <div class="ci-val">@saraswatiarts</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">⏰</div>
+        <div>
+          <div class="ci-label">Working Time</div>
+          <div class="ci-val"> 8AM to 7pm (sunday close)</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">✉️</div>
+        <div>
+          <div class="ci-label">Email</div>
+          <div class="ci-val">saraswatiarts@gmail.com</div>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem;padding:1.5rem;border-radius:var(--radius);background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25)">
+        <p style="color:var(--gold);font-size:0.85rem;font-weight:600;margin-bottom:0.5rem">💡 Tip for Quick Orders</p>
+        <p style="color:rgba(255,255,255,0.6);font-size:0.82rem;line-height:1.6">WhatsApp orders are processed fastest! Send us your name, occasion, and colour preference and we'll send a design preview within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Saraswati Arts ✦</div>
+  <div class="footer-copy">© Saraswati Arts. Handcrafted with ❤️ in Alibaug.</div>
+  <div style="display:flex;gap:1rem">
+    <a href="https://wa.me/919999999999" target="_blank" style="color:rgba(255,255,255,0.5);font-size:0.78rem;text-decoration:none">WhatsApp</a>
+    <a href="https://instagram.com/saraswatiarts" target="_blank" style="color:rgba(255,255,255,0.5);font-size:0.78rem;text-decoration:none">Instagram</a>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a class="wa-float" href="https://wa.me/919999999999?text=Hi! I want to order from Saraswati Arts." target="_blank" title="Order on WhatsApp">💬</a>
+
+<script>
+  // NAV scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Hamburger
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('#navLinks a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+  });
+
+  // Gallery filter
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.gallery-card').forEach((card, i) => {
+        const match = filter === 'all' || card.dataset.cat === filter;
+        card.classList.toggle('hidden', !match);
+        if (match) {
+          card.style.animationDelay = (i % 10) * 0.05 + 's';
+          card.style.animation = 'none';
+          card.offsetHeight;
+          card.style.animation = 'fadeUp .4s ease both';
+        }
+      });
+    });
+  });
+
+  // Scroll animations
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
